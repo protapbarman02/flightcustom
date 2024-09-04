@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /home/Kstych/Framework/application/app/Kstych/Asterisk</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../../../../_css/bootstrap.min.css?v=10.1.16" rel="stylesheet" type="text/css">
+  <link href="../../../../_css/nv.d3.min.css?v=10.1.16" rel="stylesheet" type="text/css">
+  <link href="../../../../_css/style.css?v=10.1.16" rel="stylesheet" type="text/css">
+  <link href="../../../../_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="../../../../index.html">/home/Kstych/Framework</a></li>
+         <li class="breadcrumb-item"><a href="../../../index.html">application</a></li>
+         <li class="breadcrumb-item"><a href="../../index.html">app</a></li>
+         <li class="breadcrumb-item"><a href="../index.html">Kstych</a></li>
+         <li class="breadcrumb-item"><a href="index.html">Asterisk</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="KPAGIWorker.php.html#10">App\Kstych\Asterisk\KPAGIWorker</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="KPAMIListen.php.html#25">App\Kstych\Asterisk\KPAMIListen</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="KPAMISender.php.html#28">App\Kstych\Asterisk\KPAMISender</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="KPAMISender.php.html#182">App\Kstych\Asterisk\KPAMIChannelAudio</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="KPAMISender.php.html#192">App\Kstych\Asterisk\MessageSendAction</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="KPAMISender.php.html#204">App\Kstych\Asterisk\PJSIPNotifyAction</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="KPSR3Logger.php.html#7">App\Kstych\Asterisk\KPSR3Logger</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="KState.php.html#7">App\Kstych\Asterisk\KState</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Kqueue.php.html#6">App\Kstych\Asterisk\Kqueue</a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="KPAMIListen.php.html#25">App\Kstych\Asterisk\KPAMIListen</a></td><td class="text-right">8556</td></tr>
+       <tr><td><a href="Kqueue.php.html#6">App\Kstych\Asterisk\Kqueue</a></td><td class="text-right">1722</td></tr>
+       <tr><td><a href="KPAMISender.php.html#28">App\Kstych\Asterisk\KPAMISender</a></td><td class="text-right">650</td></tr>
+       <tr><td><a href="KPAGIWorker.php.html#10">App\Kstych\Asterisk\KPAGIWorker</a></td><td class="text-right">306</td></tr>
+       <tr><td><a href="KState.php.html#7">App\Kstych\Asterisk\KState</a></td><td class="text-right">272</td></tr>
+       <tr><td><a href="KPSR3Logger.php.html#7">App\Kstych\Asterisk\KPSR3Logger</a></td><td class="text-right">20</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="KPAGIWorker.php.html#16"><abbr title="App\Kstych\Asterisk\KPAGIWorker::init">init</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="KPAGIWorker.php.html#23"><abbr title="App\Kstych\Asterisk\KPAGIWorker::run">run</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="KPAGIWorker.php.html#97"><abbr title="App\Kstych\Asterisk\KPAGIWorker::log">log</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="KPAGIWorker.php.html#103"><abbr title="App\Kstych\Asterisk\KPAGIWorker::signalHandler">signalHandler</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="KPAGIWorker.php.html#113"><abbr title="App\Kstych\Asterisk\KPAGIWorker::errorHandler">errorHandler</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="KPAGIWorker.php.html#120"><abbr title="App\Kstych\Asterisk\KPAGIWorker::shutdown">shutdown</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="KPAMIListen.php.html#36"><abbr title="App\Kstych\Asterisk\KPAMIListen::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="KPAMIListen.php.html#57"><abbr title="App\Kstych\Asterisk\KPAMIListen::run">run</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="KPAMIListen.php.html#72"><abbr title="App\Kstych\Asterisk\KPAMIListen::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="KPAMIListen.php.html#103"><abbr title="App\Kstych\Asterisk\KPAMIListen::PeerStatusEvent">PeerStatusEvent</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="KPAMIListen.php.html#126"><abbr title="App\Kstych\Asterisk\KPAMIListen::NewextenEvent">NewextenEvent</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="KPAMIListen.php.html#181"><abbr title="App\Kstych\Asterisk\KPAMIListen::VarSetEvent">VarSetEvent</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="KPAMIListen.php.html#230"><abbr title="App\Kstych\Asterisk\KPAMIListen::DialBeginEvent">DialBeginEvent</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="KPAMIListen.php.html#293"><abbr title="App\Kstych\Asterisk\KPAMIListen::DialEndEvent">DialEndEvent</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="KPAMIListen.php.html#437"><abbr title="App\Kstych\Asterisk\KPAMIListen::HangupEvent">HangupEvent</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="KPAMIListen.php.html#594"><abbr title="App\Kstych\Asterisk\KPAMIListen::UnknownEvent">UnknownEvent</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="KPAMISender.php.html#35"><abbr title="App\Kstych\Asterisk\KPAMISender::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="KPAMISender.php.html#47"><abbr title="App\Kstych\Asterisk\KPAMISender::run">run</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="KPAMISender.php.html#65"><abbr title="App\Kstych\Asterisk\KPAMISender::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="KPAMISender.php.html#70"><abbr title="App\Kstych\Asterisk\KPAMISender::sendKqueue">sendKqueue</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="KPAMISender.php.html#104"><abbr title="App\Kstych\Asterisk\KPAMISender::sendAMICommands">sendAMICommands</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="KPAMISender.php.html#184"><abbr title="App\Kstych\Asterisk\KPAMIChannelAudio::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="KPAMISender.php.html#194"><abbr title="App\Kstych\Asterisk\MessageSendAction::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="KPAMISender.php.html#206"><abbr title="App\Kstych\Asterisk\PJSIPNotifyAction::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="KPSR3Logger.php.html#11"><abbr title="App\Kstych\Asterisk\KPSR3Logger::__construct">__construct</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="KPSR3Logger.php.html#15"><abbr title="App\Kstych\Asterisk\KPSR3Logger::setEnable">setEnable</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="KPSR3Logger.php.html#20"><abbr title="App\Kstych\Asterisk\KPSR3Logger::log">log</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="KState.php.html#11"><abbr title="App\Kstych\Asterisk\KState::update">update</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="KState.php.html#16"><abbr title="App\Kstych\Asterisk\KState::handleUpdate">handleUpdate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Kqueue.php.html#16"><abbr title="App\Kstych\Asterisk\Kqueue::run">run</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Kqueue.php.html#68"><abbr title="App\Kstych\Asterisk\Kqueue::message">message</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Kqueue.php.html#76"><abbr title="App\Kstych\Asterisk\Kqueue::notify">notify</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Kqueue.php.html#84"><abbr title="App\Kstych\Asterisk\Kqueue::userToConf">userToConf</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Kqueue.php.html#105"><abbr title="App\Kstych\Asterisk\Kqueue::numberToConf">numberToConf</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Kqueue.php.html#163"><abbr title="App\Kstych\Asterisk\Kqueue::ivrDial">ivrDial</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Kqueue.php.html#214"><abbr title="App\Kstych\Asterisk\Kqueue::hangupChannel">hangupChannel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Kqueue.php.html#221"><abbr title="App\Kstych\Asterisk\Kqueue::hangupChannelS">hangupChannelS</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Kqueue.php.html#233"><abbr title="App\Kstych\Asterisk\Kqueue::autoCallOut">autoCallOut</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Kqueue.php.html#250"><abbr title="App\Kstych\Asterisk\Kqueue::sipOriginate">sipOriginate</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Kqueue.php.html#266"><abbr title="App\Kstych\Asterisk\Kqueue::channelRedirectToExten">channelRedirectToExten</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Kqueue.php.html#282"><abbr title="App\Kstych\Asterisk\Kqueue::recordChannel">recordChannel</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Kqueue.php.html#295"><abbr title="App\Kstych\Asterisk\Kqueue::channelMuteMic">channelMuteMic</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Kqueue.php.html#306"><abbr title="App\Kstych\Asterisk\Kqueue::channelMuteSpeaker">channelMuteSpeaker</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Kqueue.php.html#317"><abbr title="App\Kstych\Asterisk\Kqueue::channelUnMuteMic">channelUnMuteMic</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Kqueue.php.html#328"><abbr title="App\Kstych\Asterisk\Kqueue::channelUnMuteSpeaker">channelUnMuteSpeaker</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Kqueue.php.html#339"><abbr title="App\Kstych\Asterisk\Kqueue::astCommand">astCommand</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Kqueue.php.html#350"><abbr title="App\Kstych\Asterisk\Kqueue::playfile">playfile</abbr></a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="KPAMIListen.php.html#437"><abbr title="App\Kstych\Asterisk\KPAMIListen::HangupEvent">HangupEvent</abbr></a></td><td class="text-right">342</td></tr>
+       <tr><td><a href="KPAMIListen.php.html#594"><abbr title="App\Kstych\Asterisk\KPAMIListen::UnknownEvent">UnknownEvent</abbr></a></td><td class="text-right">306</td></tr>
+       <tr><td><a href="KPAMISender.php.html#104"><abbr title="App\Kstych\Asterisk\KPAMISender::sendAMICommands">sendAMICommands</abbr></a></td><td class="text-right">240</td></tr>
+       <tr><td><a href="KState.php.html#16"><abbr title="App\Kstych\Asterisk\KState::handleUpdate">handleUpdate</abbr></a></td><td class="text-right">240</td></tr>
+       <tr><td><a href="Kqueue.php.html#16"><abbr title="App\Kstych\Asterisk\Kqueue::run">run</abbr></a></td><td class="text-right">240</td></tr>
+       <tr><td><a href="KPAMIListen.php.html#293"><abbr title="App\Kstych\Asterisk\KPAMIListen::DialEndEvent">DialEndEvent</abbr></a></td><td class="text-right">210</td></tr>
+       <tr><td><a href="KPAMIListen.php.html#72"><abbr title="App\Kstych\Asterisk\KPAMIListen::handle">handle</abbr></a></td><td class="text-right">132</td></tr>
+       <tr><td><a href="KPAGIWorker.php.html#23"><abbr title="App\Kstych\Asterisk\KPAGIWorker::run">run</abbr></a></td><td class="text-right">110</td></tr>
+       <tr><td><a href="KPAMIListen.php.html#103"><abbr title="App\Kstych\Asterisk\KPAMIListen::PeerStatusEvent">PeerStatusEvent</abbr></a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="KPAMIListen.php.html#126"><abbr title="App\Kstych\Asterisk\KPAMIListen::NewextenEvent">NewextenEvent</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="KPAMIListen.php.html#181"><abbr title="App\Kstych\Asterisk\KPAMIListen::VarSetEvent">VarSetEvent</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="KPAMIListen.php.html#230"><abbr title="App\Kstych\Asterisk\KPAMIListen::DialBeginEvent">DialBeginEvent</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="KPAMIListen.php.html#36"><abbr title="App\Kstych\Asterisk\KPAMIListen::__construct">__construct</abbr></a></td><td class="text-right">30</td></tr>
+       <tr><td><a href="KPAMISender.php.html#70"><abbr title="App\Kstych\Asterisk\KPAMISender::sendKqueue">sendKqueue</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="KPAGIWorker.php.html#120"><abbr title="App\Kstych\Asterisk\KPAGIWorker::shutdown">shutdown</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="KPAMISender.php.html#47"><abbr title="App\Kstych\Asterisk\KPAMISender::run">run</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Kqueue.php.html#68"><abbr title="App\Kstych\Asterisk\Kqueue::message">message</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Kqueue.php.html#76"><abbr title="App\Kstych\Asterisk\Kqueue::notify">notify</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Kqueue.php.html#84"><abbr title="App\Kstych\Asterisk\Kqueue::userToConf">userToConf</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Kqueue.php.html#105"><abbr title="App\Kstych\Asterisk\Kqueue::numberToConf">numberToConf</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="KPAMIListen.php.html#57"><abbr title="App\Kstych\Asterisk\KPAMIListen::run">run</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="KPAMISender.php.html#35"><abbr title="App\Kstych\Asterisk\KPAMISender::__construct">__construct</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="KPSR3Logger.php.html#20"><abbr title="App\Kstych\Asterisk\KPSR3Logger::log">log</abbr></a></td><td class="text-right">6</td></tr>
+       <tr><td><a href="Kqueue.php.html#163"><abbr title="App\Kstych\Asterisk\Kqueue::ivrDial">ivrDial</abbr></a></td><td class="text-right">6</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 10.1.16</a> using <a href="https://www.php.net/" target="_top">PHP 8.3.7</a> and <a href="https://phpunit.de/">PHPUnit 10.5.30</a> at Wed Sep 4 6:47:29 UTC 2024.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../../../../_js/jquery.min.js?v=10.1.16" type="text/javascript"></script>
+  <script src="../../../../_js/d3.min.js?v=10.1.16" type="text/javascript"></script>
+  <script src="../../../../_js/nv.d3.min.js?v=10.1.16" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([9,0,0,0,0,0,0,0,0,0,0,0], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([47,0,0,0,0,0,0,0,0,0,0,0], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[0,17,"<a href=\"KPAGIWorker.php.html#10\">App\\Kstych\\Asterisk\\KPAGIWorker<\/a>"],[0,92,"<a href=\"KPAMIListen.php.html#25\">App\\Kstych\\Asterisk\\KPAMIListen<\/a>"],[0,25,"<a href=\"KPAMISender.php.html#28\">App\\Kstych\\Asterisk\\KPAMISender<\/a>"],[0,1,"<a href=\"KPAMISender.php.html#182\">App\\Kstych\\Asterisk\\KPAMIChannelAudio<\/a>"],[0,1,"<a href=\"KPAMISender.php.html#192\">App\\Kstych\\Asterisk\\MessageSendAction<\/a>"],[0,1,"<a href=\"KPAMISender.php.html#204\">App\\Kstych\\Asterisk\\PJSIPNotifyAction<\/a>"],[0,4,"<a href=\"KPSR3Logger.php.html#7\">App\\Kstych\\Asterisk\\KPSR3Logger<\/a>"],[0,16,"<a href=\"KState.php.html#7\">App\\Kstych\\Asterisk\\KState<\/a>"],[0,41,"<a href=\"Kqueue.php.html#6\">App\\Kstych\\Asterisk\\Kqueue<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"KPAGIWorker.php.html#16\">App\\Kstych\\Asterisk\\KPAGIWorker::init<\/a>"],[0,10,"<a href=\"KPAGIWorker.php.html#23\">App\\Kstych\\Asterisk\\KPAGIWorker::run<\/a>"],[0,1,"<a href=\"KPAGIWorker.php.html#97\">App\\Kstych\\Asterisk\\KPAGIWorker::log<\/a>"],[0,1,"<a href=\"KPAGIWorker.php.html#103\">App\\Kstych\\Asterisk\\KPAGIWorker::signalHandler<\/a>"],[0,1,"<a href=\"KPAGIWorker.php.html#113\">App\\Kstych\\Asterisk\\KPAGIWorker::errorHandler<\/a>"],[0,3,"<a href=\"KPAGIWorker.php.html#120\">App\\Kstych\\Asterisk\\KPAGIWorker::shutdown<\/a>"],[0,5,"<a href=\"KPAMIListen.php.html#36\">App\\Kstych\\Asterisk\\KPAMIListen::__construct<\/a>"],[0,2,"<a href=\"KPAMIListen.php.html#57\">App\\Kstych\\Asterisk\\KPAMIListen::run<\/a>"],[0,11,"<a href=\"KPAMIListen.php.html#72\">App\\Kstych\\Asterisk\\KPAMIListen::handle<\/a>"],[0,7,"<a href=\"KPAMIListen.php.html#103\">App\\Kstych\\Asterisk\\KPAMIListen::PeerStatusEvent<\/a>"],[0,6,"<a href=\"KPAMIListen.php.html#126\">App\\Kstych\\Asterisk\\KPAMIListen::NewextenEvent<\/a>"],[0,6,"<a href=\"KPAMIListen.php.html#181\">App\\Kstych\\Asterisk\\KPAMIListen::VarSetEvent<\/a>"],[0,6,"<a href=\"KPAMIListen.php.html#230\">App\\Kstych\\Asterisk\\KPAMIListen::DialBeginEvent<\/a>"],[0,14,"<a href=\"KPAMIListen.php.html#293\">App\\Kstych\\Asterisk\\KPAMIListen::DialEndEvent<\/a>"],[0,18,"<a href=\"KPAMIListen.php.html#437\">App\\Kstych\\Asterisk\\KPAMIListen::HangupEvent<\/a>"],[0,17,"<a href=\"KPAMIListen.php.html#594\">App\\Kstych\\Asterisk\\KPAMIListen::UnknownEvent<\/a>"],[0,2,"<a href=\"KPAMISender.php.html#35\">App\\Kstych\\Asterisk\\KPAMISender::__construct<\/a>"],[0,3,"<a href=\"KPAMISender.php.html#47\">App\\Kstych\\Asterisk\\KPAMISender::run<\/a>"],[0,1,"<a href=\"KPAMISender.php.html#65\">App\\Kstych\\Asterisk\\KPAMISender::handle<\/a>"],[0,4,"<a href=\"KPAMISender.php.html#70\">App\\Kstych\\Asterisk\\KPAMISender::sendKqueue<\/a>"],[0,15,"<a href=\"KPAMISender.php.html#104\">App\\Kstych\\Asterisk\\KPAMISender::sendAMICommands<\/a>"],[0,1,"<a href=\"KPAMISender.php.html#184\">App\\Kstych\\Asterisk\\KPAMIChannelAudio::__construct<\/a>"],[0,1,"<a href=\"KPAMISender.php.html#194\">App\\Kstych\\Asterisk\\MessageSendAction::__construct<\/a>"],[0,1,"<a href=\"KPAMISender.php.html#206\">App\\Kstych\\Asterisk\\PJSIPNotifyAction::__construct<\/a>"],[0,1,"<a href=\"KPSR3Logger.php.html#11\">App\\Kstych\\Asterisk\\KPSR3Logger::__construct<\/a>"],[0,1,"<a href=\"KPSR3Logger.php.html#15\">App\\Kstych\\Asterisk\\KPSR3Logger::setEnable<\/a>"],[0,2,"<a href=\"KPSR3Logger.php.html#20\">App\\Kstych\\Asterisk\\KPSR3Logger::log<\/a>"],[0,1,"<a href=\"KState.php.html#11\">App\\Kstych\\Asterisk\\KState::update<\/a>"],[0,15,"<a href=\"KState.php.html#16\">App\\Kstych\\Asterisk\\KState::handleUpdate<\/a>"],[0,15,"<a href=\"Kqueue.php.html#16\">App\\Kstych\\Asterisk\\Kqueue::run<\/a>"],[0,3,"<a href=\"Kqueue.php.html#68\">App\\Kstych\\Asterisk\\Kqueue::message<\/a>"],[0,3,"<a href=\"Kqueue.php.html#76\">App\\Kstych\\Asterisk\\Kqueue::notify<\/a>"],[0,3,"<a href=\"Kqueue.php.html#84\">App\\Kstych\\Asterisk\\Kqueue::userToConf<\/a>"],[0,3,"<a href=\"Kqueue.php.html#105\">App\\Kstych\\Asterisk\\Kqueue::numberToConf<\/a>"],[0,2,"<a href=\"Kqueue.php.html#163\">App\\Kstych\\Asterisk\\Kqueue::ivrDial<\/a>"],[0,1,"<a href=\"Kqueue.php.html#214\">App\\Kstych\\Asterisk\\Kqueue::hangupChannel<\/a>"],[0,1,"<a href=\"Kqueue.php.html#221\">App\\Kstych\\Asterisk\\Kqueue::hangupChannelS<\/a>"],[0,1,"<a href=\"Kqueue.php.html#233\">App\\Kstych\\Asterisk\\Kqueue::autoCallOut<\/a>"],[0,1,"<a href=\"Kqueue.php.html#250\">App\\Kstych\\Asterisk\\Kqueue::sipOriginate<\/a>"],[0,1,"<a href=\"Kqueue.php.html#266\">App\\Kstych\\Asterisk\\Kqueue::channelRedirectToExten<\/a>"],[0,1,"<a href=\"Kqueue.php.html#282\">App\\Kstych\\Asterisk\\Kqueue::recordChannel<\/a>"],[0,1,"<a href=\"Kqueue.php.html#295\">App\\Kstych\\Asterisk\\Kqueue::channelMuteMic<\/a>"],[0,1,"<a href=\"Kqueue.php.html#306\">App\\Kstych\\Asterisk\\Kqueue::channelMuteSpeaker<\/a>"],[0,1,"<a href=\"Kqueue.php.html#317\">App\\Kstych\\Asterisk\\Kqueue::channelUnMuteMic<\/a>"],[0,1,"<a href=\"Kqueue.php.html#328\">App\\Kstych\\Asterisk\\Kqueue::channelUnMuteSpeaker<\/a>"],[0,1,"<a href=\"Kqueue.php.html#339\">App\\Kstych\\Asterisk\\Kqueue::astCommand<\/a>"],[0,1,"<a href=\"Kqueue.php.html#350\">App\\Kstych\\Asterisk\\Kqueue::playfile<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

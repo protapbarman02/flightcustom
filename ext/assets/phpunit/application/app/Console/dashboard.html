@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for /home/Kstych/Framework/application/app/Console</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../../../_css/bootstrap.min.css?v=10.1.16" rel="stylesheet" type="text/css">
+  <link href="../../../_css/nv.d3.min.css?v=10.1.16" rel="stylesheet" type="text/css">
+  <link href="../../../_css/style.css?v=10.1.16" rel="stylesheet" type="text/css">
+  <link href="../../../_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="../../../index.html">/home/Kstych/Framework</a></li>
+         <li class="breadcrumb-item"><a href="../../index.html">application</a></li>
+         <li class="breadcrumb-item"><a href="../index.html">app</a></li>
+         <li class="breadcrumb-item"><a href="index.html">Console</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Commands/Agent/KAgent.php.html#9">App\Console\Commands\Agent\KAgent</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/Asterisk/KstychPAGI.php.html#8">App\Console\Commands\Asterisk\KstychPAGI</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/Asterisk/KstychPAMI.php.html#8">App\Console\Commands\Asterisk\KstychPAMI</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/Cron/KstychDaily.php.html#17">App\Console\Commands\Cron\KstychDaily</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/Cron/KstychWorkflow.php.html#7">App\Console\Commands\Cron\KstychWorkflow</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/Queue/KWorker.php.html#14">App\Console\Commands\Queue\KWorker</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/Setup/App.php.html#13">App\Console\Commands\Setup\App</a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Commands/Setup/App.php.html#13">App\Console\Commands\Setup\App</a></td><td class="text-right">9702</td></tr>
+       <tr><td><a href="Commands/Cron/KstychDaily.php.html#17">App\Console\Commands\Cron\KstychDaily</a></td><td class="text-right">1260</td></tr>
+       <tr><td><a href="Commands/Cron/KstychWorkflow.php.html#7">App\Console\Commands\Cron\KstychWorkflow</a></td><td class="text-right">1190</td></tr>
+       <tr><td><a href="Commands/Queue/KWorker.php.html#14">App\Console\Commands\Queue\KWorker</a></td><td class="text-right">702</td></tr>
+       <tr><td><a href="Commands/Agent/KAgent.php.html#9">App\Console\Commands\Agent\KAgent</a></td><td class="text-right">552</td></tr>
+       <tr><td><a href="Commands/Asterisk/KstychPAMI.php.html#8">App\Console\Commands\Asterisk\KstychPAMI</a></td><td class="text-right">12</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Commands/Agent/KAgent.php.html#17"><abbr title="App\Console\Commands\Agent\KAgent::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/Agent/KAgent.php.html#145"><abbr title="App\Console\Commands\Agent\KAgent::response">response</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/Asterisk/KstychPAGI.php.html#29"><abbr title="App\Console\Commands\Asterisk\KstychPAGI::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/Asterisk/KstychPAMI.php.html#29"><abbr title="App\Console\Commands\Asterisk\KstychPAMI::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/Cron/KstychDaily.php.html#38"><abbr title="App\Console\Commands\Cron\KstychDaily::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/Cron/KstychDaily.php.html#56"><abbr title="App\Console\Commands\Cron\KstychDaily::certbot">certbot</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/Cron/KstychDaily.php.html#61"><abbr title="App\Console\Commands\Cron\KstychDaily::cleanLogs">cleanLogs</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/Cron/KstychDaily.php.html#104"><abbr title="App\Console\Commands\Cron\KstychDaily::backupDB">backupDB</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/Cron/KstychDaily.php.html#147"><abbr title="App\Console\Commands\Cron\KstychDaily::cleanServerLogFiles">cleanServerLogFiles</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/Cron/KstychDaily.php.html#159"><abbr title="App\Console\Commands\Cron\KstychDaily::workflowDailyTasks">workflowDailyTasks</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/Cron/KstychWorkflow.php.html#28"><abbr title="App\Console\Commands\Cron\KstychWorkflow::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/Queue/KWorker.php.html#27"><abbr title="App\Console\Commands\Queue\KWorker::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/Queue/KWorker.php.html#75"><abbr title="App\Console\Commands\Queue\KWorker::sendJobs">sendJobs</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/Setup/App.php.html#22"><abbr title="App\Console\Commands\Setup\App::handle">handle</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/Setup/App.php.html#58"><abbr title="App\Console\Commands\Setup\App::setupcontainer">setupcontainer</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/Setup/App.php.html#83"><abbr title="App\Console\Commands\Setup\App::packagesettings">packagesettings</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/Setup/App.php.html#144"><abbr title="App\Console\Commands\Setup\App::folderstructure">folderstructure</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/Setup/App.php.html#187"><abbr title="App\Console\Commands\Setup\App::schema">schema</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/Setup/App.php.html#247"><abbr title="App\Console\Commands\Setup\App::getScreenDetails">getScreenDetails</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/Setup/App.php.html#275"><abbr title="App\Console\Commands\Setup\App::screenstop">screenstop</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/Setup/App.php.html#296"><abbr title="App\Console\Commands\Setup\App::screenstart">screenstart</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/Setup/App.php.html#309"><abbr title="App\Console\Commands\Setup\App::addapposfiles">addapposfiles</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/Setup/App.php.html#435"><abbr title="App\Console\Commands\Setup\App::removeapposfiles">removeapposfiles</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/Setup/App.php.html#448"><abbr title="App\Console\Commands\Setup\App::cronadd">cronadd</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/Setup/App.php.html#464"><abbr title="App\Console\Commands\Setup\App::cronremove">cronremove</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/Setup/App.php.html#486"><abbr title="App\Console\Commands\Setup\App::certbotadd">certbotadd</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/Setup/App.php.html#497"><abbr title="App\Console\Commands\Setup\App::certbotdelete">certbotdelete</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/Setup/App.php.html#507"><abbr title="App\Console\Commands\Setup\App::clearState">clearState</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/Setup/App.php.html#517"><abbr title="App\Console\Commands\Setup\App::custom">custom</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/Setup/App.php.html#537"><abbr title="App\Console\Commands\Setup\App::screencommands">screencommands</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Commands/Setup/App.php.html#593"><abbr title="App\Console\Commands\Setup\App::screencommandstatus">screencommandstatus</abbr></a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Commands/Cron/KstychWorkflow.php.html#28"><abbr title="App\Console\Commands\Cron\KstychWorkflow::handle">handle</abbr></a></td><td class="text-right">1190</td></tr>
+       <tr><td><a href="Commands/Agent/KAgent.php.html#17"><abbr title="App\Console\Commands\Agent\KAgent::handle">handle</abbr></a></td><td class="text-right">506</td></tr>
+       <tr><td><a href="Commands/Setup/App.php.html#22"><abbr title="App\Console\Commands\Setup\App::handle">handle</abbr></a></td><td class="text-right">380</td></tr>
+       <tr><td><a href="Commands/Setup/App.php.html#187"><abbr title="App\Console\Commands\Setup\App::schema">schema</abbr></a></td><td class="text-right">240</td></tr>
+       <tr><td><a href="Commands/Queue/KWorker.php.html#27"><abbr title="App\Console\Commands\Queue\KWorker::handle">handle</abbr></a></td><td class="text-right">182</td></tr>
+       <tr><td><a href="Commands/Queue/KWorker.php.html#75"><abbr title="App\Console\Commands\Queue\KWorker::sendJobs">sendJobs</abbr></a></td><td class="text-right">182</td></tr>
+       <tr><td><a href="Commands/Setup/App.php.html#309"><abbr title="App\Console\Commands\Setup\App::addapposfiles">addapposfiles</abbr></a></td><td class="text-right">156</td></tr>
+       <tr><td><a href="Commands/Cron/KstychDaily.php.html#159"><abbr title="App\Console\Commands\Cron\KstychDaily::workflowDailyTasks">workflowDailyTasks</abbr></a></td><td class="text-right">110</td></tr>
+       <tr><td><a href="Commands/Cron/KstychDaily.php.html#104"><abbr title="App\Console\Commands\Cron\KstychDaily::backupDB">backupDB</abbr></a></td><td class="text-right">90</td></tr>
+       <tr><td><a href="Commands/Setup/App.php.html#537"><abbr title="App\Console\Commands\Setup\App::screencommands">screencommands</abbr></a></td><td class="text-right">90</td></tr>
+       <tr><td><a href="Commands/Cron/KstychDaily.php.html#38"><abbr title="App\Console\Commands\Cron\KstychDaily::handle">handle</abbr></a></td><td class="text-right">72</td></tr>
+       <tr><td><a href="Commands/Setup/App.php.html#275"><abbr title="App\Console\Commands\Setup\App::screenstop">screenstop</abbr></a></td><td class="text-right">56</td></tr>
+       <tr><td><a href="Commands/Cron/KstychDaily.php.html#61"><abbr title="App\Console\Commands\Cron\KstychDaily::cleanLogs">cleanLogs</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Commands/Setup/App.php.html#58"><abbr title="App\Console\Commands\Setup\App::setupcontainer">setupcontainer</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Commands/Setup/App.php.html#593"><abbr title="App\Console\Commands\Setup\App::screencommandstatus">screencommandstatus</abbr></a></td><td class="text-right">42</td></tr>
+       <tr><td><a href="Commands/Setup/App.php.html#296"><abbr title="App\Console\Commands\Setup\App::screenstart">screenstart</abbr></a></td><td class="text-right">20</td></tr>
+       <tr><td><a href="Commands/Asterisk/KstychPAMI.php.html#29"><abbr title="App\Console\Commands\Asterisk\KstychPAMI::handle">handle</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Commands/Setup/App.php.html#83"><abbr title="App\Console\Commands\Setup\App::packagesettings">packagesettings</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Commands/Setup/App.php.html#144"><abbr title="App\Console\Commands\Setup\App::folderstructure">folderstructure</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Commands/Setup/App.php.html#247"><abbr title="App\Console\Commands\Setup\App::getScreenDetails">getScreenDetails</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Commands/Setup/App.php.html#464"><abbr title="App\Console\Commands\Setup\App::cronremove">cronremove</abbr></a></td><td class="text-right">12</td></tr>
+       <tr><td><a href="Commands/Setup/App.php.html#517"><abbr title="App\Console\Commands\Setup\App::custom">custom</abbr></a></td><td class="text-right">12</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 10.1.16</a> using <a href="https://www.php.net/" target="_top">PHP 8.3.7</a> and <a href="https://phpunit.de/">PHPUnit 10.5.30</a> at Wed Sep 4 6:47:29 UTC 2024.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../../../_js/jquery.min.js?v=10.1.16" type="text/javascript"></script>
+  <script src="../../../_js/d3.min.js?v=10.1.16" type="text/javascript"></script>
+  <script src="../../../_js/nv.d3.min.js?v=10.1.16" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([7,0,0,0,0,0,0,0,0,0,0,0], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([31,0,0,0,0,0,0,0,0,0,0,0], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[0,23,"<a href=\"Commands\/Agent\/KAgent.php.html#9\">App\\Console\\Commands\\Agent\\KAgent<\/a>"],[0,1,"<a href=\"Commands\/Asterisk\/KstychPAGI.php.html#8\">App\\Console\\Commands\\Asterisk\\KstychPAGI<\/a>"],[0,3,"<a href=\"Commands\/Asterisk\/KstychPAMI.php.html#8\">App\\Console\\Commands\\Asterisk\\KstychPAMI<\/a>"],[0,35,"<a href=\"Commands\/Cron\/KstychDaily.php.html#17\">App\\Console\\Commands\\Cron\\KstychDaily<\/a>"],[0,34,"<a href=\"Commands\/Cron\/KstychWorkflow.php.html#7\">App\\Console\\Commands\\Cron\\KstychWorkflow<\/a>"],[0,26,"<a href=\"Commands\/Queue\/KWorker.php.html#14\">App\\Console\\Commands\\Queue\\KWorker<\/a>"],[0,98,"<a href=\"Commands\/Setup\/App.php.html#13\">App\\Console\\Commands\\Setup\\App<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,22,"<a href=\"Commands\/Agent\/KAgent.php.html#17\">App\\Console\\Commands\\Agent\\KAgent::handle<\/a>"],[0,1,"<a href=\"Commands\/Agent\/KAgent.php.html#145\">App\\Console\\Commands\\Agent\\KAgent::response<\/a>"],[0,1,"<a href=\"Commands\/Asterisk\/KstychPAGI.php.html#29\">App\\Console\\Commands\\Asterisk\\KstychPAGI::handle<\/a>"],[0,3,"<a href=\"Commands\/Asterisk\/KstychPAMI.php.html#29\">App\\Console\\Commands\\Asterisk\\KstychPAMI::handle<\/a>"],[0,8,"<a href=\"Commands\/Cron\/KstychDaily.php.html#38\">App\\Console\\Commands\\Cron\\KstychDaily::handle<\/a>"],[0,1,"<a href=\"Commands\/Cron\/KstychDaily.php.html#56\">App\\Console\\Commands\\Cron\\KstychDaily::certbot<\/a>"],[0,6,"<a href=\"Commands\/Cron\/KstychDaily.php.html#61\">App\\Console\\Commands\\Cron\\KstychDaily::cleanLogs<\/a>"],[0,9,"<a href=\"Commands\/Cron\/KstychDaily.php.html#104\">App\\Console\\Commands\\Cron\\KstychDaily::backupDB<\/a>"],[0,1,"<a href=\"Commands\/Cron\/KstychDaily.php.html#147\">App\\Console\\Commands\\Cron\\KstychDaily::cleanServerLogFiles<\/a>"],[0,10,"<a href=\"Commands\/Cron\/KstychDaily.php.html#159\">App\\Console\\Commands\\Cron\\KstychDaily::workflowDailyTasks<\/a>"],[0,34,"<a href=\"Commands\/Cron\/KstychWorkflow.php.html#28\">App\\Console\\Commands\\Cron\\KstychWorkflow::handle<\/a>"],[0,13,"<a href=\"Commands\/Queue\/KWorker.php.html#27\">App\\Console\\Commands\\Queue\\KWorker::handle<\/a>"],[0,13,"<a href=\"Commands\/Queue\/KWorker.php.html#75\">App\\Console\\Commands\\Queue\\KWorker::sendJobs<\/a>"],[0,19,"<a href=\"Commands\/Setup\/App.php.html#22\">App\\Console\\Commands\\Setup\\App::handle<\/a>"],[0,6,"<a href=\"Commands\/Setup\/App.php.html#58\">App\\Console\\Commands\\Setup\\App::setupcontainer<\/a>"],[0,3,"<a href=\"Commands\/Setup\/App.php.html#83\">App\\Console\\Commands\\Setup\\App::packagesettings<\/a>"],[0,3,"<a href=\"Commands\/Setup\/App.php.html#144\">App\\Console\\Commands\\Setup\\App::folderstructure<\/a>"],[0,15,"<a href=\"Commands\/Setup\/App.php.html#187\">App\\Console\\Commands\\Setup\\App::schema<\/a>"],[0,3,"<a href=\"Commands\/Setup\/App.php.html#247\">App\\Console\\Commands\\Setup\\App::getScreenDetails<\/a>"],[0,7,"<a href=\"Commands\/Setup\/App.php.html#275\">App\\Console\\Commands\\Setup\\App::screenstop<\/a>"],[0,4,"<a href=\"Commands\/Setup\/App.php.html#296\">App\\Console\\Commands\\Setup\\App::screenstart<\/a>"],[0,12,"<a href=\"Commands\/Setup\/App.php.html#309\">App\\Console\\Commands\\Setup\\App::addapposfiles<\/a>"],[0,1,"<a href=\"Commands\/Setup\/App.php.html#435\">App\\Console\\Commands\\Setup\\App::removeapposfiles<\/a>"],[0,1,"<a href=\"Commands\/Setup\/App.php.html#448\">App\\Console\\Commands\\Setup\\App::cronadd<\/a>"],[0,3,"<a href=\"Commands\/Setup\/App.php.html#464\">App\\Console\\Commands\\Setup\\App::cronremove<\/a>"],[0,1,"<a href=\"Commands\/Setup\/App.php.html#486\">App\\Console\\Commands\\Setup\\App::certbotadd<\/a>"],[0,1,"<a href=\"Commands\/Setup\/App.php.html#497\">App\\Console\\Commands\\Setup\\App::certbotdelete<\/a>"],[0,1,"<a href=\"Commands\/Setup\/App.php.html#507\">App\\Console\\Commands\\Setup\\App::clearState<\/a>"],[0,3,"<a href=\"Commands\/Setup\/App.php.html#517\">App\\Console\\Commands\\Setup\\App::custom<\/a>"],[0,9,"<a href=\"Commands\/Setup\/App.php.html#537\">App\\Console\\Commands\\Setup\\App::screencommands<\/a>"],[0,6,"<a href=\"Commands\/Setup\/App.php.html#593\">App\\Console\\Commands\\Setup\\App::screencommandstatus<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>
