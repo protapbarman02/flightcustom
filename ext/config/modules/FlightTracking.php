@@ -13,30 +13,6 @@
   ),
   'submodule' =>
   array (
-    'Flight' =>
-    array (
-      0 => 'Flight',
-      1 => '',
-      2 => 'Auth',
-    ),
-    'RecentSearch' =>
-    array (
-      0 => 'RecentSearch',
-      1 => '',
-      2 => 'Auth',
-    ),
-    'Home' =>
-    array (
-      0 => 'Home',
-      1 => '',
-      2 => 'Auth',
-    ),
-    'Distance' =>
-    array (
-      0 => 'Distance',
-      1 => '',
-      2 => 'Auth',
-    ),
   ),
   'models' =>
   array (
