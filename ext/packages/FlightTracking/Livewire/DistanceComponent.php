@@ -20,6 +20,7 @@ class DistanceComponent extends Component
 
     public $travelData;
     public $mode;
+    public $message;
 
     #[On('getTimeInfo')]
     public function getTimeInfo($data)
