@@ -6,14 +6,6 @@
                     <input type="text" wire:model="flight_no" id="flight_no"
                         class="form-control form-control-sm rounded-0" placeholder="Enter Flight Number" required />
                 </div>
-                @if($predictions)
-                    <ul>
-                        @foreach($predictions as $prediction)
-
-                        @endforeach
-                        <li></li>
-                    </ul>
-                @endif
                 <div class="col-auto">
                     <button type="submit" class="btn btn-sm btn-dark mb-3 rounded-0"
                         id="track_form_submit_btn">Track</button>
@@ -41,6 +33,14 @@
                     @error('source_location')
                         <p class="text-danger my-0">{{ $message }}</p>
                     @enderror
+                    @if ($predictions)
+                        <ul style="list-style-type:none;">
+                            @foreach ($predictions['predictions'] as $prediction)
+                                <li wire:click="updateSourceLocation('{{ $prediction['description'] }}')">
+                                    {{ $prediction['description'] }}</li>
+                            @endforeach
+                        </ul>
+                    @endif
                     <input type="hidden" wire:model="destination_location">
                     <input type="hidden" wire:model="mode">
                 </div>
@@ -286,6 +286,7 @@
                     a: $wire.entangle('flightDetails'),
                     initialize: function() {
                         this.$watch('a', () => {
+                            console.log("hi");
                             fetchLocation();
                         })
                     }
@@ -297,32 +298,28 @@
                 resetTooltip();
             });
 
+
+            //children should take events directly from parent**********************************************************************************
+
             // fetch locations(syncronous) and then travel information
             async function fetchLocation() {
                 try {
+                    console.log('hi');
                     sourceLocation = await getLocation();
-
+                    console.log(sourceLocation)
                     $("#source_location").val(sourceLocation.origins);
                     destinationLocation = $("#destination_location").text().trim();
                     destinationDate = $("#departure_date").text();
-                    $wire.source_location = sourceLocation.origins;
-                    $wire.mode = 'Driving';
-                    $wire.getTimeInfo();
-                    // // first get travel info(syncronous) and then populate travel information container
-                    // getTimeInfo(sourceLocation.origins, destinationLocation, mode, destinationDate)
-                    //     .then(timeInfo => {
-                    //         status = 'SUCCESS';
-                    //         message = 'Succesfully fetched details';
-                    //         renderTimes(status, message, mode, timeInfo);
-                    //     })
-                    //     .catch(error => {
-                    //         status = 'ERROR';
-                    //         renderTimes(status, error, mode, {});
-                    //     });
-
+                    // $wire.source_location = sourceLocation.origins;
+                    // $wire.mode = 'Driving';
+                    // "origin"=>$this->source_location,"destination"=>$this->destination_location,"mode"=>$this->mode
+                    $wire.dispatchTo('DistanceComponent','getTimeInfo',{origin:sourceLocation,destination:destinationLocation,mode:mode});  // event not caught in component 
+                    // $wire.dispatchTo('modal-hide');
+                    // $wire.getTimeInfo();
                 } catch (error) {
-                    status = 'SOURCE_ERROR';
-                    // renderTimes(status, error, mode, {});
+                    toastr.error(
+                        "Some error occured while fetching travel information"
+                    );
                 }
             }
 
@@ -354,203 +351,6 @@
                 });
             }
 
-            // prepares data to render for travel information container
-            // async function getTimeInfo(sourceLocation, destinationLocation, mode, destinationDate) {
-            //     return new Promise((resolve, reject) => {
-            //         $.ajax({
-            //             type: 'GET',
-            //             url: '/flighttracking/distance?origins=' + encodeURIComponent(sourceLocation) +
-            //                 '&destinations=' + encodeURIComponent(destinationLocation) + '&mode=' + mode,
-            //             success: function(data) {
-            //                 response = data.data;
-            //                 console.log("Time info");
-            //                 console.log(response);
-            //                 if (response.status !== "OK") {
-            //                     reject('Something Went Wrong while fetching travel information');
-            //                 } else {
-            //                     //if response.origin_addresses then give a resolve message location not found and dont change source location value
-            //                     if (response.origin_addresses.length == 0) {
-            //                         reject('Source Location not Found');
-            //                         return;
-            //                     }
-            //                     sourceLocation = response.origin_addresses;
-            //                     destinationLocation = response.destination_addresses;
-            //                     if (response.rows[0].elements[0].status !== "OK") {
-            //                         resolve({
-            //                             sourceLocation: sourceLocation,
-            //                             destinationLocation: destinationLocation,
-            //                             distance: 'N/A',
-            //                             message: 'No results Found'
-            //                         });
-            //                         return;
-            //                     } else {
-            //                         data = response.rows[0].elements[0];
-            //                         distance = data.distance.text;
-            //                         requiredTime = data.duration.text;
-            //                         requiredTimeInSeconds = data.duration.value;
-
-            //                         targetTime = $("#departure_time").text();
-            //                         departureStatus = $("#flight_status").text();
-            //                         message = '-';
-
-            //                         if (departureStatus == 'scheduled') {
-            //                             message =
-            //                                 `${getTravelTime(targetTime,requiredTimeInSeconds,destinationDate)}`
-            //                         } else if (departureStatus == 'cancelled') {
-            //                             message = 'Flight is Cancelled';
-            //                         } else {
-            //                             message = 'Flight is already Departed';
-            //                         }
-            //                     }
-            //                     $("#source_location").val(sourceLocation);
-            //                     resolve({
-            //                         sourceLocation: sourceLocation,
-            //                         destinationLocation: destinationLocation,
-            //                         message: message,
-            //                         distance: distance
-            //                     });
-            //                 }
-            //             },
-            //             error: function(xhr, status, error) {
-            //                 console.log(error.message());
-            //                 reject('Something Went Wrong');
-            //             }
-            //         });
-            //     })
-            // }
-
-            // render the travel container
-            //         function renderTimes(status, message, mode, data) {
-            //             $("#time-details-error").empty();
-            //             $("#time-details").empty();
-
-            //             if (status !== 'SUCCESS') {
-            //                 $("#time-details-error").html('<span class="text-danger">*</span>' + message);
-            //             }
-
-            //             $("#time-details").append(`
-    //     <div class="row mt-2">
-
-    //       <div class="col">
-    //         <div>[<span>${data.sourceLocation?data.sourceLocation:'N/A'}</span><span class="text-dark">to</span> <span>${data.destinationLocation?data.destinationLocation:'N/A'}</span>]</div>
-    //         <div>${data.distance?data.distance:'Distance Not Found'}</div>
-    //       </div>
-
-    //       <div class="col">
-    //         <div>${data.message?data.message:'N/A'}</div>
-    //       </div>
-
-    //       <div class="col">
-    //         <div class="row">
-    //           <div class="col-1">By</div>
-    //           <div class="col">
-    //             <div class="dropdown">
-    //               <button class="btn btn-sm btn-light rounded-0 dropdown-toggle" type="button" data-bs-toggle="dropdown"
-    //                 aria-expanded="false" id="mode">
-    //                 ${mode}
-    //               </button>
-    //               <ul class="dropdown-menu m-0 p-0 rounded-0">
-    //                 <li><button class="dropdown-item btn btn-light" onclick="setMode('Driving')">Driving</button></li>
-    //                 <li><button class="dropdown-item btn btn-light" onclick="setMode('Transit')">Transit</button></li>
-    //                 <li><button class="dropdown-item btn btn-light" onclick="setMode('Walking')">Walking</button></li>
-    //               </ul>
-    //               <button type="button" class="btn btn-sm btn-dark rounded-0" onclick="changeLocation()">Change Your Location</button>
-    //             </div>
-    //           </div>
-    //         </div>
-    //       </div>
-
-    //     </div>
-    //   `);
-            //         }
-
-            // // calculate time informations with formatting
-            // function getTravelTime(destinationTime, durationInSeconds, destinationDate) {
-            //     console.log(destinationDate)
-            //     console.log(destinationTime)
-            //     console.log(durationInSeconds)
-            //     const [time, modifier] = destinationTime.split(' ');
-            //     let [hours, minutes] = time.split(':').map(Number);
-            //     hours = (modifier === 'PM' && hours !== 12) ? hours + 12 : hours % 12;
-
-            //     const targetDate = new Date(
-            //         `${destinationDate}T${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`);
-
-            //     const latestStartTime = new Date(targetDate.getTime() - durationInSeconds * 1000);
-
-            //     const now = new Date();
-            //     const timeRemaining = targetDate.getTime() - now.getTime();
-
-            //     if (timeRemaining < durationInSeconds * 1000) {
-            //         return `You cannot reach the destination on time. Required time: ${convertSeconds(durationInSeconds)}.`;
-            //     }
-
-            //     const startHours = latestStartTime.getHours() % 12 || 12;
-            //     const startMinutes = String(latestStartTime.getMinutes()).padStart(2, '0');
-            //     const startModifier = latestStartTime.getHours() >= 12 ? 'PM' : 'AM';
-
-            //     const departureDate = latestStartTime.toISOString().split('T')[0];
-            //     let travelDate;
-
-            //     if (latestStartTime.getDate() === now.getDate() && latestStartTime.getMonth() === now.getMonth() &&
-            //         latestStartTime.getFullYear() === now.getFullYear()) {
-            //         travelDate = 'today';
-            //     } else if (latestStartTime.getDate() === now.getDate() + 1 && latestStartTime.getMonth() === now.getMonth() &&
-            //         latestStartTime.getFullYear() === now.getFullYear()) {
-            //         travelDate = 'tomorrow';
-            //     } else {
-            //         travelDate = departureDate;
-            //     }
-
-            //     return `You can leave ${travelDate} at ${startHours}:${startMinutes} ${startModifier}${travelDate !== 'today' && travelDate !== 'tomorrow' ? ` on ${departureDate}` : ''}.`;
-            // }
-
-            // // convert seconds into hours minutes
-            // const convertSeconds = (seconds) => {
-            //     hours = Math.floor(seconds / 3600);
-            //     minutes = Math.floor((seconds % 3600) / 60);
-
-            //     hourString = hours > 0 ? `${hours} hour${hours > 1 ? 's' : ''}` : '';
-            //     minuteString = minutes > 0 ? `${minutes} minute${minutes > 1 ? 's' : ''}` : '';
-
-            //     return hourString && minuteString ? `${hourString} : ${minuteString}` :
-            //         hourString || minuteString || '0 minutes';
-            // };
-
-            // // calculate duration between start and end time
-            // function calculateDuration(start, end) {
-            //     const startDate = new Date(start);
-            //     const endDate = new Date(end);
-            //     const diffMs = endDate - startDate;
-            //     const diffHrs = Math.floor(diffMs / (1000 * 60 * 60));
-            //     const diffMins = Math.round((diffMs % (1000 * 60 * 60)) / (1000 * 60));
-            //     return `${diffHrs}h ${diffMins}m`;
-            // }
-
-            // // format datetime into hours minutes
-            // function formatTimeUTC(dateString) {
-            //     const utcDate = new Date(dateString);
-
-            //     const options = {
-            //         hour: '2-digit',
-            //         minute: '2-digit',
-            //         hour12: true,
-            //         timeZone: 'UTC'
-            //     };
-            //     return new Intl.DateTimeFormat('en-US', options).format(utcDate);
-            // }
-
-            // function formatTimeLocal(dateString) {
-            //     const utcDate = new Date(dateString);
-
-            //     const options = {
-            //         hour: '2-digit',
-            //         minute: '2-digit',
-            //         hour12: true,
-            //     };
-            //     return new Intl.DateTimeFormat('en-US', options).format(utcDate);
-            // }
-
             // open location input modal
             window.changeLocation = function() {
                 $("#travelForm").modal('show');
@@ -564,19 +364,6 @@
             window.setMode = function(mode) {
                 $wire.mode = mode;
                 $wire.getTimeInfo();
-                // sourceLocation = $("#source_location").val().trim();
-                // destinationLocation = $("#destination_location").text();
-                // destinationDate = $("#departure_date").text();
-                // getTimeInfo(sourceLocation, destinationLocation, mode, destinationDate)
-                //     .then(timeInfo => {
-                //         status = 'SUCCESS';
-                //         message = 'Succesfully fetched details';
-                //         renderTimes(status, message, mode, timeInfo);
-                //     })
-                //     .catch(error => {
-                //         status = 'ERROR';
-                //         renderTimes(status, error, mode, {});
-                //     });
             }
         </script>
     @endscript

@@ -17,7 +17,7 @@ use Http;
 
 class FlightSearchComponent extends Component
 {
-	// #[Url(as:'s')]		//error when reload the page with url value present
+	// #[Url(as:'s', history:true)]		//error when reload the page with url value present
 	#[Rule('required|min:4|max:8', as: 'Flight Number')]
 	public $flight_no = '';
 	
@@ -112,17 +112,17 @@ class FlightSearchComponent extends Component
 				)
 		];
 
-		// // insert latest flight into recent search table
-		// $insertId = $this->insertToRecentSearch($recentSearch);
-		// if ($insertId == 0) {
-		// 	$this->dispatch('show-toastr', ['type' => 'error', 'message' => 'Flight information fetched successfully but failed to insert flight information into recent searches\' table']);
-		// }
+		// insert latest flight into recent search table
+		$insertId = $this->insertToRecentSearch($recentSearch);
+		if ($insertId == 0) {
+			$this->dispatch('show-toastr', ['type' => 'error', 'message' => 'Flight information fetched successfully but failed to insert flight information into recent searches\' table']);
+		}
 
-		// // disable(status=0) previous searches with same iata and user id
-		// $check = $this->disablePrevSearches($insertId, $latestFlight['flight']['iata'], $latestFlight['flight_date']);
-		// if ($check == 0) {
-		// 	$this->dispatch('show-toastr', ['type' => 'error', 'message' => 'Recent searches\' table update error']);
-		// }
+		// disable(status=0) previous searches with same iata and user id
+		$check = $this->disablePrevSearches($insertId, $latestFlight['flight']['iata'], $latestFlight['flight_date']);
+		if ($check == 0) {
+			$this->dispatch('show-toastr', ['type' => 'error', 'message' => 'Recent searches\' table update error']);
+		}
 		$this->flightDetails = $latestFlight;
 		$this->destination_location = $latestFlight['departure']['location'];
 		$this->dispatch('recent-search-updated', $recentSearch);
@@ -133,15 +133,7 @@ class FlightSearchComponent extends Component
 		return view('custom.component.flight-search-component');
 	}
 
-	// 
-	// public function rendered()
-	// {
-	// 	if($this->flightDetails!=null){
-	// 		if(!array_key_exists('error',$this->flightDetails)){
-	// 			$this->dispatch('flight-details-populated',$this->flightDetails);
-	// 		}
-	// 	}
-	// }
+
 	// get Airport Location info based on Airport IATA using api-ninjas' API
 	public function getAirportLocation($iata)
 	{
@@ -209,13 +201,12 @@ class FlightSearchComponent extends Component
 	    return date('D, d M', strtotime($date));
 	}
 
-	public function getTimeInfo()
-	{
-		
-		$data = ["origin"=>$this->source_location,"destination"=>$this->destination_location,"mode"=>$this->mode];
-		$this->dispatch('getTimeInfo',$data);
-		$this->dispatch('modal-hide');
-	}
+	// public function getTimeInfo()
+	// {
+	// 	$data = ["origin"=>$this->source_location,"destination"=>$this->destination_location,"mode"=>$this->mode];
+	// 	$this->dispatch('getTimeInfo',$data);
+	// 	$this->dispatch('modal-hide');
+	// }
 	
 	public function updated($prop)
 	{
@@ -223,12 +214,14 @@ class FlightSearchComponent extends Component
 			$this->validateOnly('source_location');
 			/* ********************** make this comment out code as normal code if you do api call */
 			// $key = config("custom.GOOGLE_MAPS_API_KEY");
-			// $cacheKey = 'autoCompleteData_' . $query . '_' . Auth::id();
-			// $data = Cache::remember($cacheKey, 3600, function () use($query,$key) {
-			//   $response = Http::get("https://maps.googleapis.com/maps/api/place/autocomplete/json?input=" . $query . "&key=$key")->json();
+			// $source = $this->source_location;
+			// $cacheKey = 'autoCompleteData_' . $source . '_' . Auth::id();
+			// $data = Cache::remember($cacheKey, 3600, function () use($source,$key) {
+			//   $response = Http::get("https://maps.googleapis.com/maps/api/place/autocomplete/json?input=" . $source . "&key=$key")->json();
 			//    return $response;
 			// });
 			// $this->predictions = $data;
+			// $this->predictions = array_slice($this->predictions['predictions'], 0, 5);
 			/* ***************************************************************************************8 */
 
 
@@ -394,8 +387,13 @@ class FlightSearchComponent extends Component
 				  }
 				],
 				"status": "OK"
-			  }';
+			}';
 			$this->predictions = json_decode($data,true);
 		}
+	}
+
+	public function updateSourceLocation($location)
+	{
+		$this->source_location = $location;
 	}
 }

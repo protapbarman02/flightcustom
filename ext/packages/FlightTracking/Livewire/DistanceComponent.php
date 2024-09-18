@@ -25,6 +25,7 @@ class DistanceComponent extends Component
     #[On('getTimeInfo')]
     public function getTimeInfo($data)
     {
+      dump("hi");
       $origins = $data['origin'];
       $destinations = $data['destination'];
       $this->mode = $data['mode'];
