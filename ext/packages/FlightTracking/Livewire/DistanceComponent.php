@@ -25,11 +25,10 @@ class DistanceComponent extends Component
     #[On('getTimeInfo')]
     public function getTimeInfo($data)
     {
-      dump("hi");
+      // dump("hi");
       $origins = $data['origin'];
       $destinations = $data['destination'];
       $this->mode = $data['mode'];
-      
       
       /* ********************** make this comment out as normal code if you do api call */
       // $apiKey = config("custom.GOOGLE_MAPS_API_KEY");
@@ -42,9 +41,9 @@ class DistanceComponent extends Component
 
       // // test data 1 instead of api call: available result
       /* *******************************************************************and comment out this code */
-      $data='{"destination_addresses": ["'.$destinations.'"],"origin_addresses": ["'.$origins.'"],"rows": [{"elements": [{"distance": {"text": "1,512 km","value": 1512278},"duration": {"text": "1 day 1 hour","value": 88354},"status": "OK"}]}],"status": "OK"}';
+      $distanceData='{"destination_addresses": ["'.$destinations.'"],"origin_addresses": ["'.$origins.'"],"rows": [{"elements": [{"distance": {"text": "1,512 km","value": 1512278},"duration": {"text": "1 day 1 hour","value": 88354},"status": "OK"}]}],"status": "OK"}';
       /* ******************************************************************* */
-      $this->travelData=json_decode($data, true);
+      $this->travelData=json_decode($distanceData, true);
     }
 
     public function render()

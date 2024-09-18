@@ -279,6 +279,7 @@
     </div>
 
 
+    
     @script
         <script>
             Alpine.data('flightsearch', () => {
@@ -304,18 +305,13 @@
             // fetch locations(syncronous) and then travel information
             async function fetchLocation() {
                 try {
-                    console.log('hi');
-                    sourceLocation = await getLocation();
-                    console.log(sourceLocation)
+                    let sourceLocation = await getLocation();
                     $("#source_location").val(sourceLocation.origins);
-                    destinationLocation = $("#destination_location").text().trim();
-                    destinationDate = $("#departure_date").text();
-                    // $wire.source_location = sourceLocation.origins;
-                    // $wire.mode = 'Driving';
-                    // "origin"=>$this->source_location,"destination"=>$this->destination_location,"mode"=>$this->mode
-                    $wire.dispatchTo('DistanceComponent','getTimeInfo',{origin:sourceLocation,destination:destinationLocation,mode:mode});  // event not caught in component 
+                    let destinationLocation = $("#destination_location").text().trim();
+                    let destinationDate = $("#departure_date").text();
+                    let mode= 'Driving';
+                    $wire.dispatchTo('DistanceComponent','getTimeInfo',{data:{origin:sourceLocation.origins,destination:destinationLocation,mode:mode}});  // event not caught in component 
                     // $wire.dispatchTo('modal-hide');
-                    // $wire.getTimeInfo();
                 } catch (error) {
                     toastr.error(
                         "Some error occured while fetching travel information"
@@ -362,7 +358,8 @@
 
             // change tavel mode : also gets the source location and travel mode and redo the travel, time info repopulation
             window.setMode = function(mode) {
-                $wire.mode = mode;
+                $wire.set('mode', mode);
+                $wire.set('source_location', $("#source_location").val());
                 $wire.getTimeInfo();
             }
         </script>

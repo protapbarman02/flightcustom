@@ -201,12 +201,12 @@ class FlightSearchComponent extends Component
 	    return date('D, d M', strtotime($date));
 	}
 
-	// public function getTimeInfo()
-	// {
-	// 	$data = ["origin"=>$this->source_location,"destination"=>$this->destination_location,"mode"=>$this->mode];
-	// 	$this->dispatch('getTimeInfo',$data);
-	// 	$this->dispatch('modal-hide');
-	// }
+	public function getTimeInfo()
+	{
+		$data = ["origin"=>$this->source_location,"destination"=>$this->destination_location,"mode"=>$this->mode];
+		$this->dispatch('getTimeInfo',$data);
+		$this->dispatch('modal-hide');
+	}
 	
 	public function updated($prop)
 	{
