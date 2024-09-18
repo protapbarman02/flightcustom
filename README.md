@@ -1,4 +1,3 @@
-# DO NOT FOLLOW THIS NOW, PROJECT IS GETTING UPDATED TO LIVEWIRE, WILL UPDATE SOON.
 # Flight Tracking Custom
 
 Test summaries are returned instead of actual API calls to Aviationstack, Google Maps, and API Ninjas.
@@ -9,15 +8,15 @@ Test summaries are returned instead of actual API calls to Aviationstack, Google
 
 Head over to `custom/packages/flightcontroller/controller/flight` and follow the instructions on the following lines:
 
-- Lines 34, 44
-- Lines 126, 146
-- Lines 195, 205
+- Lines 47, 64
+- Lines 143, 163
+- Lines 215, 229
 
 ### Distance Controller
 
 Head over to `custom/packages/flightcontroller/controller/distance` and follow the instructions on the following lines:
 
-- Lines 38, 46
+- Lines 33, 42
 
 ## If Any API Call Fails
 

@@ -140,7 +140,7 @@ class FlightSearchComponent extends Component
 		$url = 'https://api.api-ninjas.com/v1/airports?iata=' . $iata;
 
 
-		/* ********************** make this comment out code(till line 142) as normal code if you do api call */
+		/* ********************** make this comment out code(till line 159) as normal code if you do api call */
 		// $key = config("custom.API_NINJAS_API_KEY");
 		// $cacheKey = 'locationdata_' . $iata . '_' . Auth::id();
 		// $data = Cache::remember($cacheKey, 1800, function () use ($iata, $key, $url) {
@@ -226,7 +226,7 @@ class FlightSearchComponent extends Component
 
 
 
-			// *********************** and comment out this code till line 365 */
+			// *********************** and comment out this code till line 392 */
 			// test data instead of api call
 			$data = '{
 				"predictions": [
@@ -389,6 +389,7 @@ class FlightSearchComponent extends Component
 				"status": "OK"
 			}';
 			$this->predictions = json_decode($data,true);
+			/********************************************************/
 		}
 	}
 
