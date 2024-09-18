@@ -22,11 +22,11 @@
                     destinationDate = $("#departure_date").text();
 
                     if (departureStatus == 'scheduled') {
-                        $wire.message = getTravelTime(targetTime, requiredTimeInSeconds, destinationDate);
+                        $wire.set('message',getTravelTime(targetTime, requiredTimeInSeconds, destinationDate));
                     } else if (departureStatus == 'cancelled') {
-                        $wire.message = 'Flight is Cancelled';
+                        $wire.set('message','Flight is Cancelled');
                     } else {
-                        $wire.message = 'Flight is already Departed';
+                        $wire.set('message','Flight is already Departed');
                     }
                 </script>
             @endscript
@@ -41,7 +41,7 @@
             </div>
 
             <div class="col">
-                <div>{{ $this->message }}</div>
+                <div>{{ $message }}</div>
             </div>
 
             <div class="col">

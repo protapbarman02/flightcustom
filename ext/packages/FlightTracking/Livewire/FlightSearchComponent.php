@@ -17,7 +17,7 @@ use Http;
 
 class FlightSearchComponent extends Component
 {
-	// #[Url(as:'s')]
+	// #[Url(as:'s')]		//error when reload the page with url value present
 	#[Rule('required|min:4|max:8', as: 'Flight Number')]
 	public $flight_no = '';
 	
@@ -28,6 +28,8 @@ class FlightSearchComponent extends Component
 
 	public $destination_location;
 	public $mode='driving';
+
+	public $predictions;
 
 	protected $listeners = ['updateFlightNoAndTrack'];
 	public function updateFlightNoAndTrack($newFlightNo)
@@ -209,25 +211,16 @@ class FlightSearchComponent extends Component
 
 	public function getTimeInfo()
 	{
-		$this->validateOnly('source_location');
-
+		
 		$data = ["origin"=>$this->source_location,"destination"=>$this->destination_location,"mode"=>$this->mode];
 		$this->dispatch('getTimeInfo',$data);
 		$this->dispatch('modal-hide');
 	}
-
-	public function show($id)
+	
+	public function updated($prop)
 	{
-		if ($id !== "autocomplete") {
-			return response()->json([
-				'status' => 400,
-				'status_code' => 'ERROR',
-				'data' => [],
-				'message' => 'Route not found. The ID must be "autocomplete".'
-			], 400);
-		} else {
-			$query = urlencode(Request::get('query'));
-
+		if($prop=='source_location'){
+			$this->validateOnly('source_location');
 			/* ********************** make this comment out code as normal code if you do api call */
 			// $key = config("custom.GOOGLE_MAPS_API_KEY");
 			// $cacheKey = 'autoCompleteData_' . $query . '_' . Auth::id();
@@ -235,6 +228,7 @@ class FlightSearchComponent extends Component
 			//   $response = Http::get("https://maps.googleapis.com/maps/api/place/autocomplete/json?input=" . $query . "&key=$key")->json();
 			//    return $response;
 			// });
+			// $this->predictions = $data;
 			/* ***************************************************************************************8 */
 
 
@@ -242,171 +236,166 @@ class FlightSearchComponent extends Component
 			// *********************** and comment out this code till line 365 */
 			// test data instead of api call
 			$data = '{
-  "predictions": [
-    {
-      "description": "Albania",
-      "matched_substrings": [
-        {
-          "length": 1,
-          "offset": 0
-        }
-      ],
-      "place_id": "ChIJLUwnvfM7RRMR7juY1onlfAc",
-      "reference": "ChIJLUwnvfM7RRMR7juY1onlfAc",
-      "structured_formatting": {
-        "main_text": "Albania",
-        "main_text_matched_substrings": [
-          {
-            "length": 1,
-            "offset": 0
-          }
-        ]
-      },
-      "terms": [
-        {
-          "offset": 0,
-          "value": "Albania"
-        }
-      ],
-      "types": [
-        "geocode",
-        "country",
-        "political"
-      ]
-    },
-    {
-      "description": "Australia",
-      "matched_substrings": [
-        {
-          "length": 1,
-          "offset": 0
-        }
-      ],
-      "place_id": "ChIJ38WHZwf9KysRUhNblaFnglM",
-      "reference": "ChIJ38WHZwf9KysRUhNblaFnglM",
-      "structured_formatting": {
-        "main_text": "Australia",
-        "main_text_matched_substrings": [
-          {
-            "length": 1,
-            "offset": 0
-          }
-        ]
-      },
-      "terms": [
-        {
-          "offset": 0,
-          "value": "Australia"
-        }
-      ],
-      "types": [
-        "geocode",
-        "country",
-        "political"
-      ]
-    },
-    {
-      "description": "Argentina",
-      "matched_substrings": [
-        {
-          "length": 1,
-          "offset": 0
-        }
-      ],
-      "place_id": "ChIJZ8b99fXKvJURqA_wKpl3Lz0",
-      "reference": "ChIJZ8b99fXKvJURqA_wKpl3Lz0",
-      "structured_formatting": {
-        "main_text": "Argentina",
-        "main_text_matched_substrings": [
-          {
-            "length": 1,
-            "offset": 0
-          }
-        ]
-      },
-      "terms": [
-        {
-          "offset": 0,
-          "value": "Argentina"
-        }
-      ],
-      "types": [
-        "geocode",
-        "country",
-        "political"
-      ]
-    },
-    {
-      "description": "Aruba",
-      "matched_substrings": [
-        {
-          "length": 1,
-          "offset": 0
-        }
-      ],
-      "place_id": "ChIJ23da4s84hY4RL4yBiT6KavE",
-      "reference": "ChIJ23da4s84hY4RL4yBiT6KavE",
-      "structured_formatting": {
-        "main_text": "Aruba",
-        "main_text_matched_substrings": [
-          {
-            "length": 1,
-            "offset": 0
-          }
-        ]
-      },
-      "terms": [
-        {
-          "offset": 0,
-          "value": "Aruba"
-        }
-      ],
-      "types": [
-        "geocode",
-        "country",
-        "political"
-      ]
-    },
-    {
-      "description": "Austria",
-      "matched_substrings": [
-        {
-          "length": 1,
-          "offset": 0
-        }
-      ],
-      "place_id": "ChIJfyqdJZsHbUcRr8Hk3XvUEhA",
-      "reference": "ChIJfyqdJZsHbUcRr8Hk3XvUEhA",
-      "structured_formatting": {
-        "main_text": "Austria",
-        "main_text_matched_substrings": [
-          {
-            "length": 1,
-            "offset": 0
-          }
-        ]
-      },
-      "terms": [
-        {
-          "offset": 0,
-          "value": "Austria"
-        }
-      ],
-      "types": [
-        "geocode",
-        "country",
-        "political"
-      ]
-    }
-  ],
-  "status": "OK"
-}';
-			/* ***************************************************************************** */
-			return response()->json([
-				'status' => 200,
-				'status_code' => 'SUCCESS',
-				'data' => json_decode($data, true)
-			], 200);
+				"predictions": [
+				  {
+					"description": "Albania",
+					"matched_substrings": [
+					  {
+						"length": 1,
+						"offset": 0
+					  }
+					],
+					"place_id": "ChIJLUwnvfM7RRMR7juY1onlfAc",
+					"reference": "ChIJLUwnvfM7RRMR7juY1onlfAc",
+					"structured_formatting": {
+					  "main_text": "Albania",
+					  "main_text_matched_substrings": [
+						{
+						  "length": 1,
+						  "offset": 0
+						}
+					  ]
+					},
+					"terms": [
+					  {
+						"offset": 0,
+						"value": "Albania"
+					  }
+					],
+					"types": [
+					  "geocode",
+					  "country",
+					  "political"
+					]
+				  },
+				  {
+					"description": "Australia",
+					"matched_substrings": [
+					  {
+						"length": 1,
+						"offset": 0
+					  }
+					],
+					"place_id": "ChIJ38WHZwf9KysRUhNblaFnglM",
+					"reference": "ChIJ38WHZwf9KysRUhNblaFnglM",
+					"structured_formatting": {
+					  "main_text": "Australia",
+					  "main_text_matched_substrings": [
+						{
+						  "length": 1,
+						  "offset": 0
+						}
+					  ]
+					},
+					"terms": [
+					  {
+						"offset": 0,
+						"value": "Australia"
+					  }
+					],
+					"types": [
+					  "geocode",
+					  "country",
+					  "political"
+					]
+				  },
+				  {
+					"description": "Argentina",
+					"matched_substrings": [
+					  {
+						"length": 1,
+						"offset": 0
+					  }
+					],
+					"place_id": "ChIJZ8b99fXKvJURqA_wKpl3Lz0",
+					"reference": "ChIJZ8b99fXKvJURqA_wKpl3Lz0",
+					"structured_formatting": {
+					  "main_text": "Argentina",
+					  "main_text_matched_substrings": [
+						{
+						  "length": 1,
+						  "offset": 0
+						}
+					  ]
+					},
+					"terms": [
+					  {
+						"offset": 0,
+						"value": "Argentina"
+					  }
+					],
+					"types": [
+					  "geocode",
+					  "country",
+					  "political"
+					]
+				  },
+				  {
+					"description": "Aruba",
+					"matched_substrings": [
+					  {
+						"length": 1,
+						"offset": 0
+					  }
+					],
+					"place_id": "ChIJ23da4s84hY4RL4yBiT6KavE",
+					"reference": "ChIJ23da4s84hY4RL4yBiT6KavE",
+					"structured_formatting": {
+					  "main_text": "Aruba",
+					  "main_text_matched_substrings": [
+						{
+						  "length": 1,
+						  "offset": 0
+						}
+					  ]
+					},
+					"terms": [
+					  {
+						"offset": 0,
+						"value": "Aruba"
+					  }
+					],
+					"types": [
+					  "geocode",
+					  "country",
+					  "political"
+					]
+				  },
+				  {
+					"description": "Austria",
+					"matched_substrings": [
+					  {
+						"length": 1,
+						"offset": 0
+					  }
+					],
+					"place_id": "ChIJfyqdJZsHbUcRr8Hk3XvUEhA",
+					"reference": "ChIJfyqdJZsHbUcRr8Hk3XvUEhA",
+					"structured_formatting": {
+					  "main_text": "Austria",
+					  "main_text_matched_substrings": [
+						{
+						  "length": 1,
+						  "offset": 0
+						}
+					  ]
+					},
+					"terms": [
+					  {
+						"offset": 0,
+						"value": "Austria"
+					  }
+					],
+					"types": [
+					  "geocode",
+					  "country",
+					  "political"
+					]
+				  }
+				],
+				"status": "OK"
+			  }';
+			$this->predictions = json_decode($data,true);
 		}
 	}
 }

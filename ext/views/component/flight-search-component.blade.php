@@ -6,6 +6,14 @@
                     <input type="text" wire:model="flight_no" id="flight_no"
                         class="form-control form-control-sm rounded-0" placeholder="Enter Flight Number" required />
                 </div>
+                @if($predictions)
+                    <ul>
+                        @foreach($predictions as $prediction)
+
+                        @endforeach
+                        <li></li>
+                    </ul>
+                @endif
                 <div class="col-auto">
                     <button type="submit" class="btn btn-sm btn-dark mb-3 rounded-0"
                         id="track_form_submit_btn">Track</button>
@@ -18,7 +26,8 @@
     </div>
     <hr>
 
-    <form class="modal fade" id="travelForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" wire:submit="getTimeInfo" wire:ignore.self>
+    <form class="modal fade" id="travelForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+        wire:submit="getTimeInfo" wire:ignore.self>
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -26,11 +35,11 @@
                     </h1>
                 </div>
                 <div class="modal-body">
-                    <input type="text" wire:model="source_location"
+                    <input type="text" wire:model.live="source_location"
                         class="form-control form-control-sm rounded-0 position-relative w-100" id="source_location"
                         placeholder="Enter Your Location" required>
                     @error('source_location')
-                        <p class="text-danger my-0">{{$message}}</p>
+                        <p class="text-danger my-0">{{ $message }}</p>
                     @enderror
                     <input type="hidden" wire:model="destination_location">
                     <input type="hidden" wire:model="mode">
@@ -260,12 +269,12 @@
         @endif
     @endif
 
-    
-    
+
+
     <div>
         <div id="time-details">
             <!-- distance and time details -->
-            @livewire("DistanceComponent")
+            @livewire('DistanceComponent')
         </div>
     </div>
 
@@ -333,7 +342,7 @@
                             (error) => {
                                 toastr.error(
                                     "Please reload the page and allow Location to view distance and travel information"
-                                    );
+                                );
                                 return;
                             }
                         );
@@ -411,26 +420,26 @@
             // }
 
             // render the travel container
-    //         function renderTimes(status, message, mode, data) {
-    //             $("#time-details-error").empty();
-    //             $("#time-details").empty();
+            //         function renderTimes(status, message, mode, data) {
+            //             $("#time-details-error").empty();
+            //             $("#time-details").empty();
 
-    //             if (status !== 'SUCCESS') {
-    //                 $("#time-details-error").html('<span class="text-danger">*</span>' + message);
-    //             }
+            //             if (status !== 'SUCCESS') {
+            //                 $("#time-details-error").html('<span class="text-danger">*</span>' + message);
+            //             }
 
-    //             $("#time-details").append(`
+            //             $("#time-details").append(`
     //     <div class="row mt-2">
-        
+
     //       <div class="col">
     //         <div>[<span>${data.sourceLocation?data.sourceLocation:'N/A'}</span><span class="text-dark">to</span> <span>${data.destinationLocation?data.destinationLocation:'N/A'}</span>]</div>
     //         <div>${data.distance?data.distance:'Distance Not Found'}</div>
     //       </div>
-        
+
     //       <div class="col">
     //         <div>${data.message?data.message:'N/A'}</div>
     //       </div>
-        
+
     //       <div class="col">
     //         <div class="row">
     //           <div class="col-1">By</div>
@@ -450,10 +459,10 @@
     //           </div>
     //         </div>
     //       </div>
-        
+
     //     </div>
     //   `);
-    //         }
+            //         }
 
             // // calculate time informations with formatting
             // function getTravelTime(destinationTime, durationInSeconds, destinationDate) {
@@ -546,11 +555,11 @@
             window.changeLocation = function() {
                 $("#travelForm").modal('show');
             }
-            
-            $wire.on("modal-hide",()=>{
+
+            $wire.on("modal-hide", () => {
                 $("#travelForm").modal('hide');
             })
-            
+
             // change tavel mode : also gets the source location and travel mode and redo the travel, time info repopulation
             window.setMode = function(mode) {
                 $wire.mode = mode;
