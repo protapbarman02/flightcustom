@@ -1,6 +1,7 @@
 # Flight Tracking Custom
 
-Test summaries are returned instead of actual API calls to Aviationstack, Google Maps, and API Ninjas.
+* Tests are not updated according to Livewire.
+* Test summaries are returned instead of actual API calls to Aviationstack, Google Maps, and API Ninjas.
 
 ## To Make the API Calls
 
